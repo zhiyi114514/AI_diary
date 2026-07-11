@@ -71,13 +71,32 @@ summaries = st.session_state.summaries
 st.markdown("""
 <style>
 /* 不操作 header，避免隐藏侧边栏箭头 */
+/* 隐藏 Deploy 和 Share 按钮、汉堡菜单 */
+header [data-testid="stDecoration"],
+[data-testid="stToolbar"],
+[data-testid="stStatusWidget"],
+header button[kind="primary"],
+header button[kind="secondary"] {
+    display: none !important;
+}
+
+/* 压缩 header 高度到最小 */
+header {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 0rem !important;
+    max-height: 0rem !important;
+    min-height: 0 !important;
+}
+
 #MainMenu {visibility: hidden; display: none;}
 footer {visibility: hidden; display: none;}
 .stApp {background-color: #f8f9fa; margin: 0; padding: 0; overflow-x: hidden;}
+/* 压缩 block-container 顶部空间 */
 .block-container {
-    padding-top: 1rem !important;
-    padding-bottom: 2rem !important;
-    margin-top: 0 !important;
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+    margin-top: -0.5rem !important;
 }
 
 /* PC端限宽居中 */
