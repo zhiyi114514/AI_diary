@@ -70,13 +70,18 @@ summaries = st.session_state.summaries
 
 st.markdown("""
 <style>
-/* 隐藏顶部header，但保留侧边栏展开箭头 */
-header {visibility: hidden; height: 0 !important; min-height: 0 !important; overflow: hidden;}
-header [data-testid="collapsedControl"],
-header [data-testid="stSidebarCollapsedControl"] {
-    visibility: visible !important;
-    height: auto !important;
-    overflow: visible !important;
+/* header 只隐藏工具栏内容，保留侧边栏箭头按钮 */
+header [data-testid="stToolbar"],
+header [data-testid="stDecoration"],
+header [data-testid="stStatusWidget"] {
+    display: none !important;
+}
+/* 压缩 header 高度但不隐藏整个元素 */
+header[data-testid="stHeader"] {
+    height: 2.5rem !important;
+    min-height: 0 !important;
+    background: transparent !important;
+    border-bottom: none !important;
 }
 #MainMenu {visibility: hidden; display: none;}
 footer {visibility: hidden; display: none;}
