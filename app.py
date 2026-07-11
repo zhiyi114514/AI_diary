@@ -70,13 +70,7 @@ summaries = st.session_state.summaries
 
 st.markdown("""
 <style>
-/* header 只隐藏工具栏内容，保留侧边栏箭头按钮 */
-header [data-testid="stToolbar"],
-header [data-testid="stDecoration"],
-header [data-testid="stStatusWidget"],
-[data-testid="stToolbarActions"] {
-    display: none !important;
-}
+/* 不操作 header，避免隐藏侧边栏箭头 */
 #MainMenu {visibility: hidden; display: none;}
 footer {visibility: hidden; display: none;}
 .stApp {background-color: #f8f9fa; margin: 0; padding: 0; overflow-x: hidden;}
