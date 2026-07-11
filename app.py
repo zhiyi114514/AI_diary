@@ -73,15 +73,9 @@ st.markdown("""
 /* header 只隐藏工具栏内容，保留侧边栏箭头按钮 */
 header [data-testid="stToolbar"],
 header [data-testid="stDecoration"],
-header [data-testid="stStatusWidget"] {
+header [data-testid="stStatusWidget"],
+[data-testid="stToolbarActions"] {
     display: none !important;
-}
-/* 压缩 header 高度但不隐藏整个元素 */
-header[data-testid="stHeader"] {
-    height: 2.5rem !important;
-    min-height: 0 !important;
-    background: transparent !important;
-    border-bottom: none !important;
 }
 #MainMenu {visibility: hidden; display: none;}
 footer {visibility: hidden; display: none;}
