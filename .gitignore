@@ -1,0 +1,29 @@
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# IDE与工具缓存
+.idea/
+.vscode/
+.claude/
+
+# Python编译缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Streamlit敏感配置
+.streamlit/secrets.toml
+.streamlit/credentials.toml
+
+# 密钥与环境变量
+.env
+.env.*
+*.pem
+*.key
+
+# 日志与临时文件
+*.log
+*.tmp
