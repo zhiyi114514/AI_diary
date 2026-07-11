@@ -3,6 +3,7 @@ import streamlit.components.v1 as _components
 import time
 import json
 import base64
+import html
 from datetime import datetime, timedelta
 from utils.storage import load_all_storage, set_storage, sync_all_storage, clear_all_storage
 from utils.weather import crawl_weather_text
@@ -69,8 +70,14 @@ summaries = st.session_state.summaries
 
 st.markdown("""
 <style>
-/* 修复页面偏下：隐藏顶部header，顶对齐 */
-header {display: none !important;}
+/* 隐藏顶部header，但保留侧边栏展开箭头 */
+header {visibility: hidden; height: 0 !important; min-height: 0 !important; overflow: hidden;}
+header [data-testid="collapsedControl"],
+header [data-testid="stSidebarCollapsedControl"] {
+    visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
+}
 #MainMenu {visibility: hidden; display: none;}
 footer {visibility: hidden; display: none;}
 .stApp {background-color: #f8f9fa; margin: 0; padding: 0; overflow-x: hidden;}
@@ -601,7 +608,7 @@ elif st.session_state.current_page == "心情日历":
                     css += " future"
                 if date_cal == today_str:
                     css += " today-cell"
-                mood_span = f'<span class="cal-mood">{emoji}</span>' if emoji else ""
+                mood_span = f'<span class="cal-mood">{html.escape(emoji)}</span>'
                 cal_html += f'<td><span class="{css}">{day}{mood_span}</span></td>'
                 day += 1
         cal_html += "</tr>"
